@@ -7,7 +7,7 @@
     <%= render product %>
     <p>
       <%= link_to "Show this product", product %>
-      <%= button_to 'Checkout', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %>%>
+      <%= button_to 'Checkout', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %>
       </p>
   <% end %>
 </div>

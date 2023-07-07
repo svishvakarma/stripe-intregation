@@ -7,7 +7,7 @@ class CheckoutController < ApplicationController
     payment_method_types: ['card'],
     line_items: [{
       price_data: {
-        currency: 'usd',
+        currency: 'inr',
         unit_amount: product.price,
         product_data: {
           name: product.name
@@ -17,7 +17,7 @@ class CheckoutController < ApplicationController
     }],
 		mode: 'payment',
 	})
-  
-		redirect_to @session.url, allow_other_host: true
+
+  redirect_to @session.url, allow_other_host: true
 	end
 end

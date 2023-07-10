@@ -1,0 +1,24 @@
+<h1>Invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Invoice #</th>
+      <th>Date</th>
+      <th>Product</th>
+      <th>Amount</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.id %></td>
+        <td><%= invoice.created_at.to_date %></td>
+        <td><%= invoice.product.name %></td>
+        <td><%= number_to_currency(invoice.amount / 100.0, unit: '₹', precision: 2) %></td>
+        <td><%= invoice.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

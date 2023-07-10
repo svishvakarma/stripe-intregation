@@ -1,0 +1,17 @@
+<h1>Invoice</h1>
+
+<div>
+  <p>Invoice #: <%= @invoice.id %></p>
+  <p>Date: <%= @invoice.created_at.to_date %></p>
+</div>
+
+<div>
+  <h2>Product Details</h2>
+  <p>Name: <%= @invoice.product.name %></p>
+  <p>Amount: <%= number_to_currency(@invoice.amount / 100.0) %></p>
+</div>
+
+<div>
+  <h2>Payment Status</h2>
+  <p>Status: <%= @invoice.status %></p>
+</div>

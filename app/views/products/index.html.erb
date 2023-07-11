@@ -1,16 +1,47 @@
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  .table-dark {
+    background-color: #343a40;
+    color: white;
+  }
+</style>
+
 <p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
 
 <%= link_to "New product", new_product_path %>
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-      <%# <%= button_to 'Checkout', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %>
-      <%= button_to 'Buy Now', payment_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %>
-      </p>
-  <% end %>
-</div>
 
+<table>
+  <thead>
+    <tr>
+      <%# <th>#</th> %>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Payment Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <%# <td><%= index + 1 %></td> 
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.payment_status %></td>
+        <td> <%= button_to 'Buy Now', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %></td>
+        <td><%= link_to "Show", product %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -2,7 +2,8 @@ databases:
   - name: postgres
     ipAllowList: []
     databaseName: EBAY_development
-    username: postgres
+    username: postgres_ebay_user
+    pasword: VKtM9ldvwJePAZftWHVp20BqTb9IuIpg
 
 services:
   - type: web

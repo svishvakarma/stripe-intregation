@@ -12,6 +12,6 @@ services:
     startCommand: "bundle exec rails s"
     envVars:
     - key: DATABASE_URL
-      value: "postgresql://username:password@localhost:5432/EBAY_development"
+      value: "postgresql://postgres:postgres@localhost:5432/EBAY_development"
     - key: RAILS_MASTER_KEY
       sync: false

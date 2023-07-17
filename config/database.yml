@@ -5,8 +5,8 @@ default: &default
   idle_timeout: <%= ENV["RAILS_IDLE_CONNECTION"] ||  60 %>
   port: 5432
   host: localhost
-  username: postgres
-  password: postgres
+  username: postgres_ebay_user
+  password: VKtM9ldvwJePAZftWHVp20BqTb9IuIpg
 
 development:
   <<: *default

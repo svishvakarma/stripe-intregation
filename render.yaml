@@ -1,7 +1,6 @@
 databases:
   - name: postgres
     ipAllowList: []
-    databaseName: EBAY_development
 
 services:
   - type: web

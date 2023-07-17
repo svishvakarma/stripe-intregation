@@ -18,7 +18,7 @@ test:
 
 production:
   <<: *default
-  database: EBAY_production
-  username: postgres
-  password: postgres
+  database: postgres://postgres_ebay_user:VKtM9ldvwJePAZftWHVp20BqTb9IuIpg@dpg-ciqer05gkuvrtobmph5g-a/postgres_ebay
+  username: postgres_ebay_user
+  password: VKtM9ldvwJePAZftWHVp20BqTb9IuIpg
 

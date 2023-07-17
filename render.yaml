@@ -2,7 +2,7 @@ databases:
   - name: postgres
     ipAllowList: []
     databaseName: EBAY_development
-    user: EBAY_development
+    user: postgres
 
 services:
   - type: web

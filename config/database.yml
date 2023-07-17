@@ -19,3 +19,6 @@ test:
 production:
   <<: *default
   database: EBAY_production
+  username: postgres
+  password: postgres
+

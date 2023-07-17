@@ -1,17 +1,17 @@
 databases:
- - name: postgres
-  ipAllowList: []
-  databaseName: EBAY_development
-  user: postgres
+  - name: postgres
+    ipAllowList: []
+    databaseName: EBAY_development
+    user: postgres
 
 services:
- - type: web
-  name: EBAY_development
-  env: ruby
-  buildCommand: "./render-build.sh"
-  startCommand: "bundle exec rails s"
-  envVars:
-   - key: DATABASE_URL
-    value: "postgresql://username:password@localhost:5432/EBAY_development"
-   - key: RAILS_MASTER_KEY
-    sync: false
+  - type: web
+    name: EBAY_development
+    env: ruby
+    buildCommand: "./render-build.sh"
+    startCommand: "bundle exec rails s"
+    envVars:
+    - key: DATABASE_URL
+      value: "postgresql://username:password@localhost:5432/EBAY_development"
+    - key: RAILS_MASTER_KEY
+      sync: false

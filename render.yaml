@@ -3,7 +3,7 @@ databases:
     ipAllowList: []
     databaseName: EBAY_development
     username: postgres_ebay_user
-    pasword: VKtM9ldvwJePAZftWHVp20BqTb9IuIpg
+    password: VKtM9ldvwJePAZftWHVp20BqTb9IuIpg
 
 services:
   - type: web

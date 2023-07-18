@@ -16,15 +16,15 @@
 </style>
 
 <p style="color: green"><%= notice %></p>
+  <% if user_signed_in? %> 
+  <div> Welcome <%= current_user.email %> </div> 
+    <%= button_to "Sign out", destroy_user_session_path, :method => 'delete'  %> 
+  <h1>Products</h1>
 
-<h1>Products</h1>
-
-<%= link_to "New product", new_product_path %>
-
+    <%= button_to "New product", new_product_path, method: :get %>
 <table>
   <thead>
     <tr>
-      <%# <th>#</th> %>
       <th>Name</th>
       <th>Price</th>
       <th>Payment Status</th>
@@ -35,13 +35,19 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <%# <td><%= index + 1 %></td> 
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.payment_status %></td>
-        <td> <%= button_to 'Buy Now', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %></td>
+        
+
+        <td><%= button_to 'Buy Now', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %></td>
+
         <td><%= link_to "Show", product %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path %> 
+<% end %>
+

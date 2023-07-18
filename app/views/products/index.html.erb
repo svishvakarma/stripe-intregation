@@ -1,53 +1,45 @@
-<style>
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
+<p class="text-green-500"><%= notice %></p>
 
-  th, td {
-    border: 1px solid black;
-    padding: 5px;
-  }
+<% if user_signed_in? %>
+<h1 class="text-center text-2xl mb-4">PRODUCTS</h1>
 
-  .table-dark {
-    background-color: #343a40;
-    color: white;
-  }
-</style>
+  <div class="mb-4 flex">
+    <%= button_to "New product", new_product_path, method: :get, class: 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md' %>
+  </div>
 
-<p style="color: green"><%= notice %></p>
-  <% if user_signed_in? %> 
-  <div> Welcome <%= current_user.email %> </div> 
-    <%= button_to "Sign out", destroy_user_session_path, :method => 'delete'  %> 
-  <h1>Products</h1>
-
-    <%= button_to "New product", new_product_path, method: :get %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Payment Status</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.payment_status %></td>
-        
-
-        <td><%= button_to 'Buy Now', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false } %></td>
-
-        <td><%= link_to "Show", product %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="max-w-full mx-4 bg-white shadow-md rounded-lg">
+    <div class="relative overflow-x-auto ">
+      <table class="w-full text-lg text-left text-gray-500 dark:text-gray-400 ">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th class="px-6 py-3">Name</th>
+            <th class="px-6 py-3">Price</th>
+            <th class="px-6 py-3">Payment Status</th>
+            <th class="px-6 py-3">Buy Now</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |product| %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <td class="px-6 py-4">
+                <%= link_to product.name, product, class: 'text-blue-500 hover:underline' %>
+              </td>
+              <td class="px-6 py-4">
+                <%= product.price %>
+              </td>
+              <td class="px-6 py-4">
+                <%= product.payment_status %>
+              </td>
+              <td class="px-6 py-4">
+                <%= button_to 'Buy Now', checkout_create_path, method: :post, params: { id: product.id }, data: { turbo: false }, class: 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+   <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mx-auto mb-4' %>
 <% else %>
-  <%= button_to "Sign in", new_user_session_path %> 
+  <%= button_to "Sign in", new_user_session_path, class: 'mb-4' %>
 <% end %>
-

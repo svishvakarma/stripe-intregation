@@ -29,7 +29,10 @@ class WebhooksController < ApplicationController
 			product.increment!(:sales_count)
 		end
 	
-		render json: { message: 'success' }
+		# Fetch the stored webhook event from the database
+		webhook_event = WebhookEvent.find_by(event_type: event.type, payload: event.to_hash)
+	
+		render json: { message: 'success', webhook_event: webhook_event }
 	end
 	
 end

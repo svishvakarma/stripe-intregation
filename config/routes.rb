@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "payment/create", to: "payment#create_payment_method"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :invoices, except: [:destroy]
+  resources :webhooks, only: [:create]
   resources :products do
     member do
       get 'success', to: 'checkout#success', as: :success
